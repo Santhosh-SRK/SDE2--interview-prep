@@ -86,3 +86,18 @@ const objc = {
 };
 
 objc.greet();
+
+///
+// console.log(a);
+// let a=10
+
+///hoisting
+function abc(){
+    console.log(any,l,c);
+    var any=10;
+    let l=11;
+    const c=12; ///temporal dead zone they are in the scope but they are not yet declare,
+}               //The Temporal Dead Zone (TDZ) is the time between when a variable is hoisted 
+                // to the top of its scope and when it is actually initialized.
+
+abc()
