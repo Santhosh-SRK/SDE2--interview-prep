@@ -60,3 +60,29 @@ var minWindow = function (s, t) {
     }
     return minWindow
 }
+
+//4.closure with this
+///here in first loop it is block scope so it will remember the i vlaue sand it wil prtint 1,2,3,4,5,after settimeout
+// but ini var that is function scoped in below loop by the time settimepouyt is executed the value of i will be 5 and numbs[5] is undefined so o/p will be undefined 5 tiumess
+let nums = [1, 2, 3, 4, 5]
+for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+        console.log(nums[i])
+    })
+}
+for (var j = 0; j < 5; j++) {
+    setTimeout(() => {
+        console.log(nums[j])
+
+    })
+}
+
+//5
+const objc = {
+  name: "Alice",
+  greet: () => {
+    console.log(this.name); // here this points to global obkject and that is a empty string                           
+  }                          //if youy want that to be fixed use normal function
+};
+
+objc.greet();
