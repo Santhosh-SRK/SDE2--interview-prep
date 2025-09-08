@@ -93,11 +93,21 @@ objc.greet();
 
 ///hoisting
 function abc(){
-    console.log(any,l,c);
+    // console.log(any,l,c);
     var any=10;
-    let l=11;
+    // let l=11;
     const c=12; ///temporal dead zone they are in the scope but they are not yet declare,
 }               //The Temporal Dead Zone (TDZ) is the time between when a variable is hoisted 
                 // to the top of its scope and when it is actually initialized.
 
 abc()
+
+
+// 5.map:- map is used for creating a new array fromk existing one by applying some function to each element of existing array
+ //map takes a callback it has 3 parameters current,index,array
+ //it does not modify the original array
+ const num=[1,2,3,4];
+ const multiply=num.map((number,i,num)=>{
+    return number*5+i
+ })
+console.log(multiply);  
