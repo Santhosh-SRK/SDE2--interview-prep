@@ -103,7 +103,8 @@ function abc(){
 abc()
 
 
-// 5.map:- map is used for creating a new array fromk existing one by applying some function to each element of existing array
+// 5.map:- map is used for creating a new array fromk existing one by applying some function to
+//  each element of existing array
  //map takes a callback it has 3 parameters current,index,array
  //it does not modify the original array
  const num=[1,2,3,4];
@@ -111,3 +112,65 @@ abc()
     return number*5+i
  })
 console.log(multiply);  
+
+
+
+// 6.filter is a method to return a array if itt satisfy a condition on each elemen tof original array 
+// only thrn it is pushed to output array
+// filter is a method in JavaScript that creates a new array containing only the elements of the original
+//  array that satisfy a given condition (i.e., return true from the callback function).
+
+const filtNums=[1,2,3,4]
+const moreThanTwo=filtNums.filter((nums,i,filtNums)=>{
+ return nums>=2
+})
+console.log(moreThanTwo);
+
+//7.reduce is a method that reduces an array to a single value by applying a 
+// function to each element and accumulating the result.
+
+const numfilter=[1,2,3,4,5]
+const summation=numfilter.reduce((acc,nmn,i,numfilter)=>{
+    return acc+nmn
+},0
+)
+console.log(summation);
+
+
+ 
+
+// 8.polyfil for map
+
+Array.prototype.myMap=function(cb){
+   let temp=[]
+   for(i=0;i<this.length;i++) { //here this refference to parent array
+      temp.push(cb(this[i],i,this))  // computation of cb is pushed
+   }
+   return temp
+    
+    
+}
+
+// eg: 
+const numP=[1,2,3,4];
+ const mult=numP.myMap((number,i,num)=>{
+    return number*5+i
+ })
+console.log(mult); 
+
+// polyfil for filter
+//map return each n evert value and modify i t acc to condi of cb but filter return only those 
+// values thst stify the cond notnevery value of arrya
+Array.prototype.myFilter=function(cb){
+    let result=[]
+    for(let i=0;i<this.length;i++){
+     if(cb(this[i],i,this)) result.push(this[i])
+    }
+return result
+}
+
+const filtN=[1,2,3,4]
+const more2=filtN.myFilter((nums,i,filtNums)=>{
+ return nums>=2
+})
+console.log(moreThanTwo);
