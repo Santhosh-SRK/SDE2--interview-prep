@@ -174,3 +174,18 @@ const more2=filtN.myFilter((nums,i,filtNums)=>{
  return nums>=2
 })
 console.log(moreThanTwo);
+
+//polyfill for reduce
+Array.prototype.myReduce=function(cb,initialValue){
+    let accumulator=initialValue;
+    for(let i=0;i<this.length;i++){
+         accumulator=accumulator?cb(accumulator,this[i],i,this):this[i]
+    }
+    return accumulator;
+}
+
+const reduced=[1,2,3,4,5,6]
+let myrdc=reduced.myReduce((acc,curr)=>{
+  return acc+curr
+},0)
+console.log("111111",myrdc);
