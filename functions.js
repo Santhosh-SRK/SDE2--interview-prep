@@ -132,3 +132,22 @@ function counter(){
 let c=counter()
 c.add(5)
 console.log(c.retr());
+
+///module pattern ?
+//module pattern is ntng but a way fof creatinf private variable and function which cannot be
+//  acced directly it only be acces inside punblic(what we want -public api) whicj is a closure 
+let module=(function(){
+    let pr=5
+    function private(){
+        console.log("private");
+        
+    }
+    return{
+        publc:function(){
+            console.log("public", pr);
+            private()
+        }
+    }
+})();
+module.publc()
+// module.private()
