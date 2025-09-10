@@ -199,8 +199,7 @@ function myMemoise(fn,context){
         var argscache=JSON.stringify(args);
         if(!res[argscache]){
      res[argscache]=fn.call(context || this,...args)
-        }else{
-            return res[argscache]
         }
+            return res[argscache]
     }
 }
