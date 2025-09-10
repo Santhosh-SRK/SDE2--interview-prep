@@ -151,3 +151,56 @@ let module=(function(){
 })();
 module.publc()
 // module.private()
+
+//oince
+let view;
+function likeVideo() {
+    let called = 0;
+    return function () {
+        if (called > 0) {
+            console.log("already called");
+        } else {
+            view = "Santhosh.....,..";
+            console.log("subnvugbn", view);
+            called++
+        }
+    }
+}
+   let iss= likeVideo()
+iss()
+iss()
+iss()
+iss()
+
+//once polyfil
+
+function once(func,context){
+    let ran;
+    return function(){
+        if(func){
+            ran=func.apply(context || this,arguments)
+            func=null
+        }
+        return ran
+    }
+}
+const hello=once(()=>console.log("helooooooo"))
+
+hello()
+hello()
+hello()
+hello()
+hello()
+
+//memoize
+function myMemoise(fn,context){
+    const res={};
+    return function(...args){
+        var argscache=JSON.stringify(args);
+        if(!res[argscache]){
+     res[argscache]=fn.call(context || this,...args)
+        }else{
+            return res[argscache]
+        }
+    }
+}
