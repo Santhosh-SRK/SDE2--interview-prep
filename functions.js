@@ -233,3 +233,33 @@ const obj={
     a:"three"
 }
 console.log(obj)
+
+const user={
+    name:"santhosh",
+    age:28,
+    isAwesome:true,
+}
+
+for (obj in user){
+    console.log(obj +" : "+ user[obj])
+}
+
+
+//to create a function that multiplyes by two
+let nums={
+    a:100,
+    b:200,
+    title:"my nums",
+};
+
+multiplyBYTwo(nums);
+
+function multiplyBYTwo(obj){
+    for(key in obj){
+        if(typeof obj[key]==="number"){
+            obj[key]*=2
+        }
+    }
+}
+
+console.log(nums)
