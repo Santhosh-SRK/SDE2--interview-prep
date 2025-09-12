@@ -200,6 +200,36 @@ function myMemoise(fn,context){
         if(!res[argscache]){
      res[argscache]=fn.call(context || this,...args)
         }
-            return res[argscache]
+            // return res[argscache]h 
     }
 }
+
+// function (a,b){
+// console.log(a,b);
+// }
+
+function f(a){
+    return function(b){
+        return `${a},${b}`;
+    }
+}
+console.log(f(5)(8));
+//currying means tranforming a function that takes muyltipple arguments into series of function each taking a single arguement.
+//sum(2)(6)(1)
+
+function sum(a){
+    return function(b){
+        return function(c){
+            return a+b+c;
+        }
+    }   
+}
+console.log(sum(1)(2)(3));
+
+///here a value is orriden by there and output only ahas three and b 9in ecma object allowes duplicate keys but it sziis iver ridden 
+const obj={
+    a:"one",
+    b:"two",
+    a:"three"
+}
+console.log(obj)
