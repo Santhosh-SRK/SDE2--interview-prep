@@ -288,3 +288,15 @@ function persons(city,piuncode){
 }
 persons.apply(person,["bangalore",56000016])
 
+//bind will retuern a new function  that can be exuted sepoerately 
+// and trhe this wil refefer to the object that was declared 
+
+const prsn={name:"santhuuuu"};
+
+function sayHi(age){
+    return `${this.name} is ${age} old`
+}
+
+console.log(sayHi.call(prsn,28));
+bounded=sayHi.bind(prsn,24555)
+console.log(bounded());
