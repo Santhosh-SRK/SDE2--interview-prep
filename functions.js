@@ -274,3 +274,17 @@ function sayhello(age){
     return "Hello" + " "+this.name + "    is"+ "  " +age
 }
 console.log(sayhello.call(obje,  27));
+
+
+//what is apply same as call it take sthe arguement as anarray  array   
+const person={
+    name:"santhsoshh.",
+    age:28,
+    DOB:1998
+}
+
+function persons(city,piuncode){
+    console.log(`Hi Iam ${this.name} my age  is${this.age}  and cits is ${city} and code ${piuncode}`);
+}
+persons.apply(person,["bangalore",56000016])
+
